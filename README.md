@@ -1,21 +1,35 @@
-# hilel-12
-CurrencyAggregator
-How to run:
+## CurrencyAggregator
+A code that allows you to transfer currency.
+
+## How to run:
 Step one, install dependencies:
- pip install -r requirements.txt
+```sh
+pip install -r requirements.txt
+```
 Apply migration:
+```sh
 python manage.py migrate
+```
 Run broker:
+```sh
 docker run -d -p 5672:5672 rabbitmq
+```
 Run celery beat:
-celery -A hilel12 beat 
+```sh
+celery -A hilel12 beat
+```
 Run worker:
+```sh
 celery -A hilel12 worker -l INFO
+
 
 or on Windows:
 1. pip install eventlet
 2. celery -A hilel12 worker -l INFO -P eventlet
+```
 Run server:
+```sh
 python manage.py runserver  
 or 
-python3 manage.py runserver  
+python3 manage.py runserver
+```
